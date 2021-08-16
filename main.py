@@ -46,15 +46,24 @@ def click(number):
         expressions = expressions + str(number)
         cooling.set(expressions)
 
+# exception handeling
+
 
 def equal_fun():
     global expressions
-    total = str(eval(expressions))
-    cooling.set(total)
-    expressions = ''
-    expressions = total
-    print(total)
-    print(expressions)
+    try:
+        total = str(eval(expressions))
+        cooling.set(total)
+        expressions = ''
+        expressions = total
+        print(total)
+        print(expressions)
+
+    except Exception as u:
+        expressions = "Error"
+        cooling.set(expressions)
+        print(u)
+        e.update()
 
 
 # this create a White frame
